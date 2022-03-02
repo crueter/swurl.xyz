@@ -1,0 +1,8 @@
+# Stuff nobody needs to see.
+dea
+element*
+
+swurl.gpg
+rss.xml
+private/feed.obj
+__pycache__
