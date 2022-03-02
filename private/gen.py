@@ -33,9 +33,10 @@ def load_fg():
 
 load_fg()
 
-def add_entry(guid, title, *, categories=['updates'], link=[{'href': 'https://swurl.xyz'}], summary=''):
+def add_entry(title, *, categories=['updates'], link=[{'href': 'https://swurl.xyz'}], summary=''):
     fe = fg.add_entry()
-    fe.guid(guid=guid)
+    # why i hate dynamically typed languages
+    fe.guid(guid=str(int(get_entries()[1]._FeedEntry__rss_guid['guid']) + 1))
     fe.title(title=title)
     fe.category(category=[{'term': c} for c in categories])
     fe.link(link=link)
@@ -60,3 +61,6 @@ def publish():
         print('published changes')
     else:
         print('ok, run abort() to remove all changes')
+
+def get_entries():
+    return fg._FeedGenerator__feed_entries
