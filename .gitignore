@@ -6,3 +6,5 @@ swurl.gpg
 rss.xml
 private/feed.obj
 __pycache__
+bbb*
+old
